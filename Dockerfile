@@ -5,7 +5,7 @@ RUN apt update && apt install ssl-cert
 RUN ln -s /etc/apache2/mods-available/socache_shmcb.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/ssl.conf /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/ssl.load /etc/apache2/mods-enabled/
-RUN ln -s /var/www/html/data/nextcloud.log /dev/stdout
+RUN ln -s /dev/stdout /var/www/html/data/nextcloud.log 
 COPY --chown=www-data:www-data ./gss_config.sh /
 COPY --chown=www-data:www-data ./mail_config.sh /
 COPY --chown=root:root ./000-default.conf /etc/apache2/sites-available/
