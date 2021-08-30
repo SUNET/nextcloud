@@ -5,6 +5,8 @@ RUN apt update && apt install ssl-cert
 RUN ln -s /etc/apache2/mods-available/socache_shmcb.load /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/ssl.conf /etc/apache2/mods-enabled/
 RUN ln -s /etc/apache2/mods-available/ssl.load /etc/apache2/mods-enabled/
+RUN mkdir -p /var/www/html/data/
+RUN chown -R www-data:root /var/www/html/
 RUN touch /var/www/html/data/nextcloud.log 
 RUN chown www-data:www-data /var/www/html/data/nextcloud.log
 RUN ln -s /dev/stdout /var/www/html/data/nextcloud.log 
